@@ -1,0 +1,38 @@
+# Rust 빌드 결과물
+**/target/
+
+# Cargo.lock은 애플리케이션 프로젝트에서는 커밋하는 것이 좋지만,
+# 라이브러리 프로젝트에서는 무시하는 것이 좋습니다.
+# Cargo.lock
+
+# IDE 관련 파일
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# 백업 파일
+*~
+*.bak
+
+# 로그 파일
+*.log
+
+# 환경 변수 파일
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 빌드 스크립트 결과물
+build/
+
+# 의존성 디렉토리
+node_modules/
+jspm_packages/
+
+# 기타 임시 파일
+*.tmp
+*.temp

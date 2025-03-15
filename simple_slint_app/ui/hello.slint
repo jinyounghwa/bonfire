@@ -1,0 +1,25 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+export component HelloWorld inherits Window {
+    width: 300px;
+    height: 200px;
+    title: "안녕하세요 Slint";
+    
+    callback clicked;
+    
+    VerticalBox {
+        alignment: center;
+        Text {
+            text: "안녕하세요!";
+            font-size: 24px;
+            horizontal-alignment: center;
+        }
+        
+        Button {
+            text: "클릭하세요";
+            clicked => {
+                root.clicked();
+            }
+        }
+    }
+}
