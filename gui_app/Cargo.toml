@@ -8,3 +8,10 @@ edition = "2021"
 [dependencies]
 native-windows-gui = "1.0.13"
 native-windows-derive = "1.0.5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = 'abort'
+opt-level = 'z'  # 최대 크기 최적화
+strip = true     # 디버그 심볼 제거

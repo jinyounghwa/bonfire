@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 extern crate native_windows_gui as nwg;
 extern crate native_windows_derive as nwd;
 
@@ -6,7 +8,7 @@ use nwg::NativeUi;
 
 #[derive(Default, NwgUi)]
 pub struct BasicApp {
-    #[nwg_control(size: (300, 200), position: (300, 300), title: "안녕하세요", flags: "WINDOW|VISIBLE")]
+    #[nwg_control(size: (500, 800), position: (300, 300), title: "안녕하세요", flags: "WINDOW|VISIBLE")]
     #[nwg_events(OnWindowClose: [BasicApp::exit])]
     window: nwg::Window,
 
@@ -29,7 +31,7 @@ impl BasicApp {
     fn say_hello(&self) {
         let name = self.name_input.text();
         let greeting = if name.is_empty() {
-            "안녕하세요, 사용자님!".to_string()
+            "안녕하세요, 진영화님!".to_string()
         } else {
             format!("안녕하세요, {}님!", name)
         };
