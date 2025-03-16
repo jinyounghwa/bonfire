@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Electron 애플리케이션</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Electron 애플리케이션에 오신 것을 환영합니다!</h1>
+    <p>이 애플리케이션은 Electron을 사용하여 만들어졌습니다.</p>
+    
+    <div class="info-container">
+      <h2>시스템 정보:</h2>
+      <ul>
+        <li>Chrome 버전: <span id="chrome-version"></span></li>
+        <li>Node 버전: <span id="node-version"></span></li>
+        <li>Electron 버전: <span id="electron-version"></span></li>
+      </ul>
+    </div>
+    
+    <div class="button-container">
+      <button id="btn-action">액션 버튼</button>
+    </div>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
