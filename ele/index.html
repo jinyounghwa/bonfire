@@ -2,27 +2,59 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <title>Electron 애플리케이션</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; media-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; media-src 'self'">
+  <title>미디어 플레이어</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Electron 애플리케이션에 오신 것을 환영합니다!</h1>
-    <p>이 애플리케이션은 Electron을 사용하여 만들어졌습니다.</p>
-    
-    <div class="info-container">
-      <h2>시스템 정보:</h2>
-      <ul>
-        <li>Chrome 버전: <span id="chrome-version"></span></li>
-        <li>Node 버전: <span id="node-version"></span></li>
-        <li>Electron 버전: <span id="electron-version"></span></li>
-      </ul>
+  <div class="drag-region"></div>
+  
+  <div class="media-container">
+    <div class="video-wrapper">
+      <video id="video-player" loop>
+        <source src="file/257593_medium.mp4" type="video/mp4">
+        비디오를 재생할 수 없습니다.
+      </video>
+      
+      <div class="top-controls">
+        <button id="fullscreen-btn" class="control-btn fullscreen-btn">전체화면</button>
+        <button id="close-btn" class="control-btn close-btn">닫기</button>
+      </div>
+      
+      <div class="overlay-controls">
+        <button id="play-pause" class="control-btn">재생</button>
+        <button id="mute-unmute" class="control-btn">음소거</button>
+        <button id="timer-btn" class="control-btn">타이머</button>
+      </div>
     </div>
-    
-    <div class="button-container">
-      <button id="btn-action">액션 버튼</button>
+  </div>
+  
+  <audio id="audio-player" loop style="display: none;">
+    <source src="file/campfire-crackling-fireplace-sound-119594.mp3" type="audio/mp3">
+    오디오를 재생할 수 없습니다.
+  </audio>
+  
+  <!-- 타이머 설정 팝업 -->
+  <div id="timer-popup" class="popup">
+    <div class="popup-content">
+      <h3>타이머 설정</h3>
+      <div class="timer-input">
+        <label for="hours">시간:</label>
+        <input type="number" id="hours" min="0" max="24" value="0">
+      </div>
+      <div class="timer-input">
+        <label for="minutes">분:</label>
+        <input type="number" id="minutes" min="0" max="59" value="0">
+      </div>
+      <div class="timer-input">
+        <label for="seconds">초:</label>
+        <input type="number" id="seconds" min="0" max="59" value="0">
+      </div>
+      <div class="popup-buttons">
+        <button id="set-timer">설정</button>
+        <button id="cancel-timer">취소</button>
+      </div>
     </div>
   </div>
   

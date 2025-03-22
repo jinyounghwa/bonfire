@@ -3,15 +3,53 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "dev": "electron . --debug"
+    "build": "electron-builder",
+    "pack": "electron-builder --dir",
+    "package": "electron-packager . \"Bonfire Media Player\" --platform=win32 --arch=x64 --icon=file/bonefire.png --out=dist --overwrite --asar --ignore=node_modules/electron-*,node_modules/.bin,node_modules/\\.github --prune=true",
+    "dist": "electron-builder --win portable"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "electron"
+  ],
+  "author": "Your Name",
   "license": "ISC",
   "description": "Electron 기반 데스크톱 애플리케이션",
   "devDependencies": {
-    "electron": "^35.0.1"
+    "electron": "^35.0.1",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "com.bonfire.mediaplayer",
+    "productName": "Bonfire Media Player",
+    "directories": {
+      "output": "dist-single"
+    },
+    "files": [
+      "**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}",
+      "!{dist,dist-small,dist-optimized,dist-single}/**/*",
+      "!{package-small.js,optimize-package.js,optimize-package-fixed.js,reduce-size.js}"
+    ],
+    "asar": true,
+    "compression": "maximum",
+    "win": {
+      "icon": "file/bonefire.png",
+      "target": "portable"
+    },
+    "portable": {
+      "artifactName": "BonfireMediaPlayer.exe"
+    }
   }
 }

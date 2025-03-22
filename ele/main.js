@@ -16,7 +16,11 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    autoHideMenuBar: true,  // 메뉴바 자동 숨김
+    frame: false,           // 프레임 제거
+    titleBarStyle: 'hidden', // 타이틀바 숨김
+    icon: path.join(__dirname, 'file/bonefire.png') // 앱 아이콘 설정
   });
 
   // index.html 파일 로드

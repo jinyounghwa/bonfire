@@ -12,34 +12,163 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.container, h1, h2, p {
+  display: none;
 }
 
-h1 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  color: #2c3e50;
+.media-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
 }
 
-h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #3498db;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-.info-container {
+.settings-container {
   background-color: #fff;
   border-radius: 5px;
   padding: 15px;
   margin-bottom: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.setting {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.setting label {
+  margin-right: 10px;
+  flex: 1;
+}
+
+/* 비디오 플레이어 스타일 */
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+/* 오디오 플레이어 스타일 */
+.audio-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #f0f8ff;
+  height: 150px;
+}
+
+.audio-placeholder {
+  display: none;
+}
+
+audio {
+  display: none;
+}
+
+/* 오버레이 컨트롤 스타일 */
+.overlay-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover .overlay-controls {
+  opacity: 1;
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.audio-controls {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(52, 152, 219, 0.7);
+}
+
+.control-btn {
+  background-color: rgba(80, 80, 80, 0.85);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  min-width: 80px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.control-btn:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+#play-pause {
+  background-color: rgba(80, 80, 80, 0.85);
+}
+
+#play-pause:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+#mute-unmute {
+  background-color: rgba(80, 80, 80, 0.85);
+}
+
+#mute-unmute:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+#timer-btn {
+  background-color: rgba(80, 80, 80, 0.85);
+}
+
+#timer-btn:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+.audio-btn {
+  background-color: rgba(80, 80, 80, 0.85);
+}
+
+.audio-btn:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
 }
 
 ul {
@@ -57,20 +186,178 @@ li {
 }
 
 button {
-  background-color: #3498db;
+  background-color: rgba(80, 80, 80, 0.85);
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 15px;
+  font-size: 14px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  flex: 1;
+  margin: 0 5px;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: rgba(100, 100, 100, 0.9);
 }
 
 button:active {
-  background-color: #1f6aa5;
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+.info-container {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* 드래그 영역 스타일 */
+.drag-region {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  -webkit-app-region: drag;
+  z-index: 1000;
+}
+
+/* 팝업 스타일 */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: rgba(80, 80, 80, 0.95);
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 80%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.popup h3 {
+  margin-top: 0;
+  color: white;
+  text-align: center;
+}
+
+.timer-input {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timer-input label {
+  flex: 1;
+}
+
+.timer-input input {
+  flex: 2;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: rgba(60, 60, 60, 0.9);
+  color: white;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: rgba(100, 100, 100, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.popup-buttons button:hover {
+  background-color: rgba(120, 120, 120, 0.9);
+}
+
+#set-timer {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+#set-timer:hover {
+  background-color: rgba(120, 120, 120, 0.9);
+}
+
+#cancel-timer {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+#cancel-timer:hover {
+  background-color: rgba(120, 120, 120, 0.9);
+}
+
+/* 타이머 표시 스타일 */
+.timer-display {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  display: none;
+}
+
+/* 상단 컨트롤 스타일 */
+.top-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+/* 전체화면 버튼 스타일 */
+.fullscreen-btn {
+  background-color: rgba(80, 80, 80, 0.85);
+  min-width: 100px;
+}
+
+.fullscreen-btn:hover {
+  background-color: rgba(100, 100, 100, 0.9);
+}
+
+/* 닫기 버튼 스타일 */
+.close-btn {
+  background-color: rgba(180, 50, 50, 0.85);
+  min-width: 80px;
+}
+
+.close-btn:hover {
+  background-color: rgba(200, 60, 60, 0.9);
 }

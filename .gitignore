@@ -36,3 +36,12 @@ jspm_packages/
 # 기타 임시 파일
 *.tmp
 *.temp
+
+# Electron 빌드 결과물 - 모든 dist 폴더 무시
+ele/dist/
+ele/dist-optimized/
+ele/dist-small/
+ele/dist-single/
+
+# dist-single 폴더의 실행 파일만 예외로 포함
+!ele/dist-single/BonfireMediaPlayer.exe
