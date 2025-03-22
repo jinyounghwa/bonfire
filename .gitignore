@@ -44,4 +44,5 @@ ele/dist-small/
 ele/dist-single/
 
 # dist-single 폴더의 실행 파일만 예외로 포함
-!ele/dist-single/BonfireMediaPlayer.exe
+!ele/player/
+!ele/player/BonfireMediaPlayer.exe

@@ -8,13 +8,13 @@ Bonfire Media Player는 비디오와 오디오 파일을 재생하기 위한 간
 - 사용자 친화적인 인터페이스
 - 커스텀 컨트롤 버튼
 - 전체 화면 모드 지원
-- 단일 실행 파일으로 간편한 사용
+- 단일 실행 파일로 간편한 사용
 
 ## 다운로드
 
 아래 링크를 클릭하여 Bonfire Media Player를 다운로드하세요:
 
-[Bonfire Media Player 다운로드](ele/dist-single/BonfireMediaPlayer.exe)
+[Bonfire Media Player 다운로드](https://github.com/jinyounghwa/bonfire/blob/main/ele/player/BonfireMediaPlayer.exe)
 
 ## 사용 방법
 
