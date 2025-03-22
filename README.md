@@ -14,7 +14,7 @@ Bonfire Media Player는 비디오와 오디오 파일을 재생하기 위한 간
 
 아래 링크를 클릭하여 Bonfire Media Player를 다운로드하세요:
 
-[Bonfire Media Player 다운로드](https://github.com/jinyounghwa/bonfire/blob/main/ele/player/BonfireMediaPlayer.exe)
+[Bonfire Media Player 다운로드](https://github.com/jinyounghwa/bonfire/raw/main/ele/player/BonfireMediaPlayer.exe)
 
 ## 사용 방법
 
