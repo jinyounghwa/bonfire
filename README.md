@@ -2,6 +2,10 @@
 
 Bonfire Media Player는 비디오와 오디오 파일을 재생하기 위한 간단하고 사용하기 쉬운 미디어 플레이어입니다.
 
+<div align="center">
+  <img src="assets/bonfire-social-preview.png" alt="Bonfire Media Player" width="600">
+</div>
+
 ## 주요 기능
 
 - 비디오 및 오디오 파일 재생
