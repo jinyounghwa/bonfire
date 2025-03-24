@@ -46,3 +46,10 @@ ele/dist-single/
 # dist-single 폴더의 실행 파일만 예외로 포함
 !ele/player/
 !ele/player/BonfireMediaPlayer.exe
+
+
+
+# 예외로 포함할 폴더
+!gui_app/
+!slint_app/
+!slint_slint_app/
